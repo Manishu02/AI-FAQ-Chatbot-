@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Chat History</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial,sans-serif;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+        }
+
+        .container{
+            width:90%;
+            margin:40px auto;
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,.25);
+        }
+
+        h1{
+            text-align:center;
+            color:#333;
+        }
+
+        a{
+            text-decoration:none;
+            color:#667eea;
+            font-weight:bold;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:30px;
+        }
+
+        th{
+            background:#667eea;
+            color:white;
+            padding:15px;
+        }
+
+        td{
+            padding:15px;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:hover{
+            background:#f5f5f5;
+        }
+
+        .unknown{
+            color:red;
+            font-weight:bold;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/">⬅ Back to Home</a>
+
+<h1>📜 Chat History</h1>
+
+<div style="margin:20px 0;">
+    <a href="/clear_history">
+        <button
+        style="
+        background:#ff4d4d;
+        color:white;
+        border:none;
+        padding:10px 20px;
+        border-radius:8px;
+        cursor:pointer;">
+            🗑 Clear History
+        </button>
+    </a>
+</div>
+
+<table>
+
+<tr>
+
+<th>#</th>
+
+<th>User Question</th>
+
+<th>Bot Answer</th>
+
+<th>Time</th>
+
+</tr>
+
+{% for log in logs %}
+
+<tr>
+
+<td>{{ loop.index }}</td>
+
+<td>{{ log[0] }}</td>
+
+<td>
+
+{% if "Sorry" in log[1] %}
+
+<span class="unknown">{{ log[1] }}</span>
+
+{% else %}
+
+{{ log[1] }}
+
+{% endif %}
+
+</td>
+
+<td>{{ log[2] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+
+</html>

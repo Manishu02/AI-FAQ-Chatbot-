@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>AI FAQ Chatbot</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+
+            width:700px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+        }
+
+        h1{
+
+            text-align:center;
+            margin-bottom:25px;
+            color:#333;
+
+        }
+
+        form{
+
+            display:flex;
+            gap:10px;
+
+        }
+
+        input{
+
+            flex:1;
+            padding:15px;
+            border-radius:10px;
+            border:1px solid #ccc;
+            font-size:17px;
+
+        }
+
+        button{
+
+            padding:15px 30px;
+            border:none;
+            border-radius:10px;
+            background:#667eea;
+            color:white;
+            cursor:pointer;
+            font-size:16px;
+
+        }
+
+        button:hover{
+
+            background:#4b5fd3;
+
+        }
+
+        .chat{
+
+            margin-top:30px;
+
+        }
+
+        .user{
+
+            background:#667eea;
+            color:white;
+            padding:15px;
+            border-radius:15px;
+            margin-bottom:15px;
+            margin-left:120px;
+            text-align:right;
+
+        }
+
+        .bot{
+
+            background:#eeeeee;
+            padding:15px;
+            border-radius:15px;
+            margin-right:120px;
+
+        }
+
+        .nav{
+
+            display:flex;
+            justify-content:space-between;
+            margin-bottom:20px;
+
+        }
+
+        .nav a{
+
+            text-decoration:none;
+            color:#667eea;
+            font-weight:bold;
+
+        }
+
+        
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="nav">
+
+<a href="/">🏠 Home</a>
+
+<a href="/history">📜 History</a>
+
+
+</div>
+
+<h1>🤖 AI FAQ Chatbot</h1>
+
+<form method="POST">
+
+<input
+type="text"
+name="question"
+placeholder="Ask your question..."
+required>
+
+<button type="submit">
+
+Send
+
+</button>
+
+</form>
+
+{% if response %}
+
+<div class="chat">
+
+<div class="user">
+
+👤 <b>You</b><br><br>
+
+{{ request.form.question }}
+
+</div>
+
+<div class="bot">
+
+🤖 <b>AI Assistant</b><br><br>
+
+{{ response }}
+
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
