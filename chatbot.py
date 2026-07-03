@@ -8,7 +8,17 @@ from nltk.stem import WordNetLemmatizer
 from sentence_transformers import SentenceTransformer
 from sentence_transformers import util
 
-# Load AI Model
+# Load AI Modelgit init
+
+git add .
+
+git commit -m "Initial commit"
+
+git branch -M main
+
+git remote add origin https://github.com/Manishu02/AI-FAQ-Chatbot 
+
+git push -u origin main
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
 # NLTK
